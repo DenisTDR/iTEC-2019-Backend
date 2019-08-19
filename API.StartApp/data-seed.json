@@ -1,0 +1,1005 @@
+{
+  "OgMetaDatas": [
+    {
+      "Slug": "about",
+      "Title": "About us - UniHack",
+      "Description": "Here you can find more details about the organizers of UniHack.",
+      "Type": 1
+    },
+    {
+      "Slug": "details",
+      "Title": "Event Details - UniHack",
+      "Description": "Here you can find more details about UniHack.",
+      "Type": 1
+    },
+    {
+      "Slug": "faq",
+      "Title": "UniHack - FAQ",
+      "Description": "Find the answers to all your questions!"
+    },
+    {
+      "Slug": "home",
+      "Title": "UniHack",
+      "Description": "A new international hackathon for university and high school students, with a focus on solving civic problems.",
+      "Type": 1
+    },
+    {
+      "Slug": "privacy-policy",
+      "Title": "Privacy policy - UniHack",
+      "Description": "Click here if you want to read our Privacy Policy.",
+      "Type": 1
+    }
+  ],
+  "Faqs": [
+    {
+      "Question": "Can I receive travel reimbursement?",
+      "Answer": "<p>No, we cannot cover your travel costs. However, we suggest contacting your University and asking for support. We can provide a document from our University to confirm that you were at the competition.</p>\r\n",
+      "OrderIndex": 11,
+      "Category": "faq-category-expenses",
+      "Published": true
+    },
+    {
+      "Question": "Can I use code written before the hackathon?",
+      "Answer": "<p>Only projects with fresh code are eligible for winning any prize. You can build on existing frameworks, however only your contribution will be judged.</p>\r\n",
+      "OrderIndex": 16,
+      "Category": "faq-category-projects",
+      "Published": true
+    },
+    {
+      "Question": "Can you help me get a visa?",
+      "Answer": "<p>Unfortunately, for this edition we cannot provide invitation letters for participants requiring a visa. Don&#39;t forget to take this into consideration before registering.</p>\r\n",
+      "OrderIndex": 7,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "Do I need to be physically at the location to participate?",
+      "Answer": "<p>Yes, you will get the most out of the event if you are at the location. You will be together with like minded people, you will receive guidance from mentors and make an impression on the judges as well.</p>\r\n",
+      "OrderIndex": 5,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "Do I need to make my code public?",
+      "Answer": "<p>Yes, you should push your code to a public repository. You will keep full ownership, but judges should be able to access your work.</p>\r\n",
+      "OrderIndex": 17,
+      "Category": "faq-category-projects",
+      "Published": true
+    },
+    {
+      "Question": "How can I win the Grand Prize?",
+      "Answer": "<p>Our jury will give out points based on originality, complexity, completeness and UI/UX design. Bonus points will be awarded for projects with a civic focus. The best projects will be presented on the stage, and then everyone will vote for their favorites.</p>\r\n",
+      "OrderIndex": 20,
+      "Category": "faq-category-prizes",
+      "Published": true
+    },
+    {
+      "Question": "How do I register my team?",
+      "Answer": "<p>For now, just register individually. You will be able to create or join a team after the event begins.</p>\r\n",
+      "OrderIndex": 14,
+      "Category": "faq-category-teams",
+      "Published": true
+    },
+    {
+      "Question": "How many members can a team have?",
+      "Answer": "<p>Teams are limited to a maximum number of 5 people.</p>\r\n",
+      "OrderIndex": 12,
+      "Category": "faq-category-teams",
+      "Published": true
+    },
+    {
+      "Question": "Is it free?",
+      "Answer": "<p>Yes, there is no participation fee.</p>\r\n",
+      "OrderIndex": 8,
+      "Category": "faq-category-expenses",
+      "Published": true
+    },
+    {
+      "Question": "What about food?",
+      "Answer": "<p>Free meals will be provided during the event.</p>\r\n",
+      "OrderIndex": 10,
+      "Category": "faq-category-expenses",
+      "Published": true
+    },
+    {
+      "Question": "What about sleeping?",
+      "Answer": "<p>We&#39;ll have designated sleeping/quiet areas if you need to get some shut-eye.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>We also offer free accommodation in student dorms (limited spots available) for people who do not live in Timișoara.</p>\r\n",
+      "OrderIndex": 9,
+      "Category": "faq-category-expenses",
+      "Published": true
+    },
+    {
+      "Question": "What happens if I get stuck?",
+      "Answer": "<p>We&rsquo;ll have mentors available to help you out. Go look for them whenever you need!</p>\r\n",
+      "OrderIndex": 18,
+      "Category": "faq-category-projects",
+      "Published": true
+    },
+    {
+      "Question": "What if I don't have a team?",
+      "Answer": "<p>We can help you join one on the day of the event, at the latest. We&rsquo;ll have a team forming event where you can announce your availability and check others&rsquo; needs. If your team is already complete, you can skip it and go straight to work.</p>\r\n",
+      "OrderIndex": 13,
+      "Category": "faq-category-teams",
+      "Published": true
+    },
+    {
+      "Question": "What if I have any other questions?",
+      "Answer": "<p>Send us an email at <a href=\"mailto:info@unihack.eu\">info@unihack.eu</a> or message us on <a href=\"http://fb.com/unihack.eu\" target=\"_blank\">Facebook</a>!</p>\r\n",
+      "OrderIndex": 21,
+      "Published": true
+    },
+    {
+      "Question": "What is a hackathon?",
+      "Answer": "<p>A hackathon is a creative and social event where students come together, share ideas and build cool software &amp; hardware hacks during 48 hours. You learn immensely, interact with startups &amp; companies and get to meet like-minded people from around the world. Don&rsquo;t worry - it&rsquo;s very beginner friendly!</p>\r\n",
+      "OrderIndex": 1,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "What is UniHack?",
+      "Answer": "<p>UniHack is a new international hackathon for students, with a focus on solving civic problems. Its first edition will take place between 17-19 May 2019.</p>\r\n",
+      "OrderIndex": 2,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "What kind of projects can I work on?",
+      "Answer": "<p>Any software or hardware project you want! Moreover, we encourage you to find and implement a solution for a civic problem.</p>\r\n",
+      "OrderIndex": 15,
+      "Category": "faq-category-projects",
+      "Published": true
+    },
+    {
+      "Question": "What prizes can I win?",
+      "Answer": "<p>You can win prizes offered by track sponsors, and also the Grand Prize. The exact prizes will be announced later on... or not.</p>\r\n",
+      "OrderIndex": 19,
+      "Category": "faq-category-prizes",
+      "Published": true
+    },
+    {
+      "Question": "What should I bring?",
+      "Answer": "<p>Make sure to take a valid student ID with you. Also, you will definitely need your laptop, phone, chargers and any hardware you need for your project. You can also bring your monitor if you want!</p>\r\n",
+      "OrderIndex": 6,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "Where is it?",
+      "Answer": "<p>UniHack takes place in Timișoara, Romania. The exact location will be announced soon.</p>\r\n",
+      "OrderIndex": 3,
+      "Category": "faq-category-general",
+      "Published": true
+    },
+    {
+      "Question": "Who can participate?",
+      "Answer": "<p>Any high school or University student from Europe is eligible to attend, regardless of age.</p>\r\n",
+      "OrderIndex": 4,
+      "Category": "faq-category-general",
+      "Published": true
+    }
+  ],
+  "Settings": [
+    {
+      "Slug": "edition_year",
+      "Value": "2019",
+      "Category": "global"
+    },
+    {
+      "Slug": "email_sender_address",
+      "Value": "no-reply@unihack.eu",
+      "Category": "global"
+    },
+    {
+      "Slug": "email_sender_name",
+      "Value": "UniHack",
+      "Category": "global"
+    },
+    {
+      "Slug": "ga_tracking_code",
+      "Value": "UA-133718204-1",
+      "Category": "global"
+    },
+    {
+      "Slug": "language",
+      "Value": "en",
+      "Category": "global",
+      "Description": "Default Language"
+    },
+    {
+      "Slug": "languages",
+      "Value": "en,ro",
+      "Category": "global",
+      "Description": "Comma separated lower case abbreviations of the available languages."
+    },
+    {
+      "Slug": "logo",
+      "Type": 3,
+      "Category": "global"
+    },
+    {
+      "Slug": "max_team_size",
+      "Type": 1,
+      "Value": "5",
+      "Category": "global"
+    },
+    {
+      "Slug": "one_signal_app_id_local",
+      "Value": "947c92f5-726a-4a5e-a4ba-eae16bccf9ce",
+      "Category": "global"
+    },
+    {
+      "Slug": "onesignal_mobile_api_key",
+      "Value": "ZTI4NjYzYmYtYmI1ZS00YTgwLWI2NTUtZmFjZjYyNjE1ZTlm",
+      "Category": "global"
+    },
+    {
+      "Slug": "onesignal_mobile_app_id",
+      "Value": "a26370da-5217-4f5d-877f-fa916b7a9418",
+      "Category": "global"
+    },
+    {
+      "Slug": "open_registrations",
+      "Type": 2,
+      "Value": "true",
+      "Category": "global"
+    },
+    {
+      "Slug": "public_vote",
+      "Type": 2,
+      "Value": "false",
+      "Category": "global",
+      "Description": "Allow participants to vote finalist projects"
+    },
+    {
+      "Slug": "show_schedule",
+      "Type": 2,
+      "Value": "true",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_login",
+      "Type": 2,
+      "Value": "true",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_login",
+      "Type": 2,
+      "Value": "true",
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_mentor",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_profile",
+      "Type": 2,
+      "Value": "true",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_profile",
+      "Type": 2,
+      "Value": "true",
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_project",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_project",
+      "Type": 2,
+      "Value": "false",
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_promo_codes_do",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_promo_codes_twilio",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_confirmation",
+      "Type": 2,
+      "Value": "false",
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_confirmation",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_gavel",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_help",
+      "Type": 2,
+      "Value": "false",
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_registrations",
+      "Type": 2,
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_registrations",
+      "Type": 2,
+      "Category": "menu"
+    },
+    {
+      "Slug": "show_registrations_late",
+      "Type": 2,
+      "Value": "false",
+      "Category": "global"
+    },
+    {
+      "Slug": "show_team",
+      "Type": 2,
+      "Value": "false",
+      "Category": "home_page"
+    },
+    {
+      "Slug": "show_team",
+      "Type": 2,
+      "Value": "false",
+      "Category": "menu"
+    },
+    {
+      "Slug": "site_name",
+      "Value": "Dev UniHack",
+      "Category": "global"
+    },
+    {
+      "Slug": "site_url",
+      "Value": "https://unihack.eu",
+      "Category": "global"
+    }
+  ],
+  "Translations": [
+    {
+      "Slug": "home_page_confirm_button",
+      "Value": "Let us know!",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_confirm_message",
+      "Value": "Can you make it to UniHack?",
+      "Language": "en"
+    },
+    {
+      "Slug": "accommodation",
+      "Value": "Accommodation",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-mlh-code-of-conduit-hint",
+      "Value": "UniHack is a MLH event, therefore all of the participants have to agree to their code of conduct.",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-mlh-code-of-conduit-placeholder",
+      "Value": "I have read and I agree to the <a href=\"https://static.mlh.io/docs/mlh-code-of-conduct.pdf\" target=\"_blank\">MLH Code of Conduct</a>.",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-mlh-data-sharing-hint",
+      "Value": "I authorize you to share my registration information for event administration, ranking, MLH administration, pre- and post-event informational e-mails, and occasional messages about hackathons in-line with the <a href=\"https://mlh.io/privacy\" target=\"_blank\">MLH Privacy Policy</a>. I further agree to the terms of both the <a href=\"https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions\" target=\"_blank\">MLH Contest Terms and Conditions</a> and the <a href=\"https://mlh.io/privacy\" target=\"_blank\">MLH Privacy Policy</a>.",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-mlh-data-sharing-placeholder",
+      "Value": "I consent to my personal data being used by MLH.",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-rules-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "agree-rules-placeholder",
+      "Value": "I have read and I agree to the <a href=\"/privacy-policy\" target=\"_blank\">Privacy Policy</a>.",
+      "Language": "en"
+    },
+    {
+      "Slug": "birthdate-hint",
+      "Value": "DD/MM/YYYY",
+      "Language": "en"
+    },
+    {
+      "Slug": "birthdate-placeholder",
+      "Value": "Your birthdate",
+      "Language": "en"
+    },
+    {
+      "Slug": "city-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "city-placeholder",
+      "Value": "City",
+      "Language": "en"
+    },
+    {
+      "Slug": "contact-by-sponsors-hint",
+      "Value": "If you agree, some of your data will be sent to our sponsors. Please read the privacy policy for more info.",
+      "Language": "en"
+    },
+    {
+      "Slug": "contact-by-sponsors-placeholder",
+      "Value": "Do you want to be contacted by sponsors?\t",
+      "Language": "en"
+    },
+    {
+      "Slug": "country-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "country-placeholder",
+      "Value": "Country",
+      "Language": "en"
+    },
+    {
+      "Slug": "current-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "current-password-placeholder",
+      "Value": "Current password",
+      "Language": "en"
+    },
+    {
+      "Slug": "email-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "email-placeholder",
+      "Value": "E-mail",
+      "Language": "en"
+    },
+    {
+      "Slug": "error-must-agree-mlh-code-of-conduit",
+      "Value": "This is required!",
+      "Language": "en"
+    },
+    {
+      "Slug": "error-must-agree-rules",
+      "Value": "This is required!",
+      "Language": "en"
+    },
+    {
+      "Slug": "error-required",
+      "Value": "This field is required.",
+      "Language": "en"
+    },
+    {
+      "Slug": "expected-graduation-year-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "expected-graduation-year-placeholder",
+      "Value": "Expected graduation year",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-expenses",
+      "Value": "Expenses",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-general",
+      "Value": "General",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-mentors",
+      "Value": "Mentors",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-prizes",
+      "Value": "Prizes",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-projects",
+      "Value": "Projects",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-registrations",
+      "Value": "Registrations",
+      "Language": "en"
+    },
+    {
+      "Slug": "faq-category-teams",
+      "Value": "Teams",
+      "Language": "en"
+    },
+    {
+      "Slug": "field-of-study-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "field-of-study-placeholder",
+      "Value": "Field of study",
+      "Language": "en"
+    },
+    {
+      "Slug": "first-name-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "first-name-placeholder",
+      "Value": "First name",
+      "Language": "en"
+    },
+    {
+      "Slug": "forgot-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "forgot-password-placeholder",
+      "Value": "Your email",
+      "Language": "en"
+    },
+    {
+      "Slug": "home",
+      "Value": "Home",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_login_message",
+      "Value": "You can log in if you already have an account.",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_project_button",
+      "Value": "Register project",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_project_message",
+      "Value": "You haven't registered your project. Do it ASAP!",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_promo_codes_do_text",
+      "Value": "Using <strong>DigitalOcean</strong> for your project?<br/><br/>Claim your <strong>$100</strong>-off promo code using this link: <a href=\"https://do.co/studenthackathon\" target=\"_blank\">do.co/studenthackathon</a> (only for new confirmed accounts).",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_promo_codes_twilio_text",
+      "Value": "Try out <strong>Twilio</strong> by using the promo code <strong>UniHack2019</strong>!",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_team_button",
+      "Value": "Join a team",
+      "Language": "en"
+    },
+    {
+      "Slug": "home_page_team_message",
+      "Value": "Team up with your friends!",
+      "Language": "en"
+    },
+    {
+      "Slug": "interests-hint",
+      "Value": "Press enter after each technology, programming language or framework you are interested in. (besides our suggestions, you can add your own)",
+      "Language": "en"
+    },
+    {
+      "Slug": "interests-placeholder",
+      "Value": "Interests",
+      "Language": "en"
+    },
+    {
+      "Slug": "invalid_email",
+      "Value": "Invalid e-mail",
+      "Language": "en"
+    },
+    {
+      "Slug": "invalid_phone_number",
+      "Value": "Invalid phone number",
+      "Language": "en"
+    },
+    {
+      "Slug": "last-name-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "last-name-placeholder",
+      "Value": "Last name",
+      "Language": "en"
+    },
+    {
+      "Slug": "login-email-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "login-email-placeholder",
+      "Value": "E-mail",
+      "Language": "en"
+    },
+    {
+      "Slug": "login-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "login-password-placeholder",
+      "Value": "Password",
+      "Language": "en"
+    },
+    {
+      "Slug": "need-accommodation-hint",
+      "Value": "You will be hosted in student dorms, in rooms of more than 5 people.",
+      "Language": "en"
+    },
+    {
+      "Slug": "need-accommodation-placeholder",
+      "Value": "I need accommodation.",
+      "Language": "en"
+    },
+    {
+      "Slug": "new-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "new-password-placeholder",
+      "Value": "Enter new password",
+      "Language": "en"
+    },
+    {
+      "Slug": "participant-profile-section-accommodation",
+      "Value": "Accommodation",
+      "Language": "en"
+    },
+    {
+      "Slug": "participant-profile-section-agreement",
+      "Value": "Final Step",
+      "Language": "en"
+    },
+    {
+      "Slug": "participant-profile-section-general",
+      "Value": "Personal information",
+      "Language": "en"
+    },
+    {
+      "Slug": "participant-profile-section-other",
+      "Value": "Others",
+      "Language": "en"
+    },
+    {
+      "Slug": "participant-profile-section-study",
+      "Value": "Education",
+      "Language": "en"
+    },
+    {
+      "Slug": "phone-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "phone-placeholder",
+      "Value": "Your phone number",
+      "Language": "en"
+    },
+    {
+      "Slug": "qa-reg-questions-hint",
+      "Value": "We'll try to answer them during the Q&A session.",
+      "Language": "en"
+    },
+    {
+      "Slug": "qa-reg-questions-placeholder",
+      "Value": "Do you have any questions?",
+      "Language": "en"
+    },
+    {
+      "Slug": "race-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "race-placeholder",
+      "Value": "Race",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-confirm-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-confirm-password-placeholder",
+      "Value": "Enter your password again",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-email-hint",
+      "Value": "Please enter a valid e-mail address, so that you will be able to receive important information regarding the competition.",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-email-placeholder",
+      "Value": "E-mail",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "register-password-placeholder",
+      "Value": "Enter a password",
+      "Language": "en"
+    },
+    {
+      "Slug": "repeat-new-password-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "repeat-new-password-placeholder",
+      "Value": "Repeat new password",
+      "Language": "en"
+    },
+    {
+      "Slug": "shirt-size-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "shirt-size-placeholder",
+      "Value": "T-shirt size",
+      "Language": "en"
+    },
+    {
+      "Slug": "shirt-type-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "shirt-type-placeholder",
+      "Value": "T-shirt type",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_schedule_button",
+      "Value": "Schedule",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_schedule_text",
+      "Value": "Check out the schedule and make sure you don't miss out on anything!",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_show_gavel_button",
+      "Value": "Go to Gavel",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_show_gavel_text",
+      "Value": "Time to evaluate the projects!",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_mentor_button",
+      "Value": "Mentor page",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_mentor_text",
+      "Value": "Check out your mentor page.",
+      "Language": "en"
+    },
+    {
+      "Slug": "status-profile-no-profile",
+      "Value": "Fill in your profile!",
+      "Language": "en"
+    },
+    {
+      "Slug": "status-registrations-open",
+      "Value": "Registrations are open!",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_public_voting_button",
+      "Value": "Cast vote",
+      "Language": "en"
+    },
+    {
+      "Slug": "status_public_voting_text",
+      "Value": "Choose your favorite project!",
+      "Language": "en"
+    },
+    {
+      "Slug": "study-level-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "study-level-placeholder",
+      "Value": "Current level of studies",
+      "Language": "en"
+    },
+    {
+      "Slug": "tracks-hint",
+      "Value": "Select the tracks where you want to register your project.",
+      "Language": "en"
+    },
+    {
+      "Slug": "tracks-placeholder",
+      "Value": "Tracks",
+      "Language": "en"
+    },
+    {
+      "Slug": "university-hint",
+      "Value": "You can select one of our suggestions or add your own.",
+      "Language": "en"
+    },
+    {
+      "Slug": "university-placeholder",
+      "Value": "University/High school",
+      "Language": "en"
+    },
+    {
+      "Slug": "validation_max_length_args",
+      "Value": "Too long.",
+      "Language": "en"
+    },
+    {
+      "Slug": "validation_min_length_args",
+      "Value": "Too short.",
+      "Language": "en"
+    },
+    {
+      "Slug": "title-placeholder",
+      "Value": "Title",
+      "Language": "en"
+    },
+    {
+      "Slug": "title-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "description-placeholder",
+      "Value": "Short description",
+      "Language": "en"
+    },
+    {
+      "Slug": "description-hint",
+      "Value": "Briefly describe your project, its purpose, and used technologies.",
+      "Language": "en"
+    },
+    {
+      "Slug": "domains-hint",
+      "Value": "Select the domains you can help with.",
+      "Language": "en"
+    },
+    {
+      "Slug": "domains-placeholder",
+      "Value": "Domains",
+      "Language": "en"
+    },
+    {
+      "Slug": "repository-placeholder",
+      "Value": "Repository link",
+      "Language": "en"
+    },
+    {
+      "Slug": "repository-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "name-placeholder",
+      "Value": "Name",
+      "Language": "en"
+    },
+    {
+      "Slug": "name-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "table-placeholder",
+      "Value": "Table",
+      "Language": "en"
+    },
+    {
+      "Slug": "table-hint",
+      "Value": "empty-string",
+      "Language": "en"
+    },
+    {
+      "Slug": "email-or-code-placeholder",
+      "Value": "Email or code",
+      "Language": "en"
+    },
+    {
+      "Slug": "email-or-code-hint",
+      "Value": "Team leader email or team code",
+      "Language": "en"
+    }
+  ],
+  "Templates": [
+    {
+      "Slug": "admin-confirmation-email",
+      "Title": "UniHack - Admin Confirmation Email",
+      "Content": "<p>Please confirm your account by <a href=\"{{url}}\">clicking here</a></p>\r\n",
+      "Description": "Admin Confirmation Email"
+    },
+    {
+      "Slug": "confirmation-email",
+      "Title": "UniHack Confirmation",
+      "Content": "<p>Welcome to <strong>{{settings:site_name}}</strong>!</p>\r\n\r\n<p>You can confirm the activation of the account by accessing <a href=\"{{url}}\" target=\"_blank\">this link</a>.</p>\r\n\r\n<p>Don&#39;t forget you have to complete your&nbsp;profile in order to finish&nbsp;the registration process.</p>\r\n\r\n<p>Thank you,<br />\r\n<a href=\"{{settings:site_url}}\">{{settings:site_name}}</a> team.</p>\r\n",
+      "Description": "UniHack Confirmation Email"
+    },
+    {
+      "Slug": "qa-registration-email",
+      "Title": "Q&A + Networking registration",
+      "Content": "<p>Hello, {{firstName}} {{lastName}}!</p>\r\n\r\n<p>You have registered for <em>UniHack - Q&amp;A + Networking session</em> - <strong>April 23rd</strong>, at <strong>Vox Technology Park</strong>, starting from <strong>6 PM</strong>.</p>\r\n\r\n<p>See you soon!</p>\r\n"
+    },
+    {
+      "Slug": "reset-password-email",
+      "Title": "UniHack Reset Password",
+      "Content": "<p>Hello!<br />\r\n<br />\r\nto reset your UniHack account password click the link below:<br />\r\n<a href=\"{{url}}\" target=\"_blank\">Reset password</a><br />\r\n<br />\r\nBest regards,<br />\r\n<a href=\"{{settings:site_url}}\">{{settings:site_name}}</a> team.</p>\r\n",
+      "Description": "UniHack Reset Password Email"
+    },
+    {
+      "Slug": "attendance-denial-email",
+      "Title": "UniHack",
+      "Content": "<p>Hello, {{firstName}} {{lastName}}!</p>\r\n\r\n<p>You are receiving this email because you told us you can&#39;t make it to&nbsp;UniHack 2019 and we have deactivated your account.</p>\r\n\r\n<p>If you&nbsp;change your mind, please let us know by sending an email to contact@unihack.eu.</p>\r\n\r\n<p>Best regards,<br />\r\n<a href=\"{{settings:site_url}}\">{{settings:site_name}}</a> team.</p>\r\n",
+      "Description": "Cancel participation email"
+    },
+    {
+      "Slug": "login-token-email",
+      "Title": "UniHack Account",
+      "Content": "<p>Welcome to&nbsp;<strong>{{settings:site_name}}</strong>!</p>\r\n\r\n<p>You can access your&nbsp;account by accessing&nbsp;<a href=\"{{url}}\" target=\"_blank\">this link</a>.</p>\r\n\r\n<p>Thank you,<br />\r\n<a href=\"{{settings:site_url}}\">{{settings:site_name}}</a>&nbsp;team.</p>\r\n"
+    }
+  ],
+  "Roles": [
+    "Admin",
+    "Api",
+    "Jury",
+    "Mentor",
+    "Moderator",
+    "Participant",
+    "Staff",
+    "User",
+    "Helper"
+  ]
+}

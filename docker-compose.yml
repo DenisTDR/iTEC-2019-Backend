@@ -1,0 +1,34 @@
+# local use only; server deployment uses a docker-compose file that is not in git
+# you will find that file in /home/docker/${project}/...
+
+version: '3.1'
+services:
+  netcoreapp:
+    image: 698c48508137
+    container_name: netcoreapp-backend-dev
+    restart: always
+    environment:
+      - NETCORE_USER_UID=69
+      - TZ=Europe/Bucharest
+    env_file:
+      - ./API.StartApp/conf.vars
+      - ./API.StartApp/conf.vars.local
+    ports:
+      - 5030:5030
+    volumes:
+      - ../docker-volumes/content:/app/content
+      - ../docker-volumes/logs:/app/logs
+    networks:
+      app-net:
+        aliases:
+          - backend
+      mariadb-net:
+
+networks:
+  app-net:
+    external:
+      name: netcoreapp-dev-net
+  mariadb-net:
+    external:
+      name: db-net
+
