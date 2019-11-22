@@ -1,0 +1,69 @@
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model IEnumerable<iTEC.App.Profile.SellerProfile.SellerProfileEntity>
+
+@{
+ViewData["Title"] = "SellerProfiles";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-12 col-md-6">
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-end pb-2">
+        <a class="btn btn-outline-primary" asp-action="Create">Create new SellerProfile</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TargetType)
+            </th>
+                    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+            <td>
+                    <span>
+                        @item.User
+                    </span>
+            </td>
+            <td>
+                    <span>
+                        @item.Address
+                    </span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.Name)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.PhoneNumber)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.TargetType)</span>
+            </td>
+                    <td>
+				<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>                    <span></span>
+				<a asp-action="Details" asp-route-id="@item.Id">Details</a>                    <span></span>
+				<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>                    <span></span>
+            </td>
+    </tr>
+    }
+    </tbody>
+</table>

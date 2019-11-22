@@ -1,0 +1,53 @@
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model IEnumerable<iTEC.App.Address.AddressEntity>
+
+@{
+ViewData["Title"] = "Addresses";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-12 col-md-6">
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-end pb-2">
+        <a class="btn btn-outline-primary" asp-action="Create">Create new Address</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationX)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationY)
+            </th>
+                    <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.Address)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.LocationX)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.LocationY)</span>
+            </td>
+                    <td>
+				<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>                    <span></span>
+				<a asp-action="Details" asp-route-id="@item.Id">Details</a>                    <span></span>
+				<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>                    <span></span>
+            </td>
+    </tr>
+    }
+    </tbody>
+</table>

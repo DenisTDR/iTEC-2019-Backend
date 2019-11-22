@@ -22,5 +22,10 @@
         <ProjectReference Include="..\API.Base\API.Base.Web.Base\API.Base.Web.Base.csproj" />
         <ProjectReference Include="..\API.Base\API.Base.Web.Common\API.Base.Web.Common.csproj" />
         <ProjectReference Include="..\API.Base\API.Base.Web.RazorGenerator\API.Base.Web.RazorGenerator.csproj" />
+        <ProjectReference Include="..\iTEC.App\iTEC.App.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations" />
     </ItemGroup>
 </Project>

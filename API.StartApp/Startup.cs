@@ -8,6 +8,7 @@ using API.Base.Web.Base.Database;
 using API.Base.Web.Common;
 using API.Base.Web.RazorGenerator;
 using API.StartApp.Data;
+using iTEC.App;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,7 +33,7 @@ namespace API.StartApp
                 .AddSpecifications<WebCommonApiSpecifications>()
                 .AddSpecifications<RazorGeneratorApiSpecifications>()
                 .AddSpecifications<StarterApiSpecifications>()
-//                .AddSpecifications<UniHackApiSpecifications>()
+                .AddSpecifications<ItecAppApiSpecifications>()
                 .UseMySql<ApplicationDbContext>()
                 .UseSwagger(new SwaggerSpecs
                 {

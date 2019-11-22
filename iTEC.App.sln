@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Base.Web.Common", "API.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Base.Web.RazorGenerator", "API.Base\API.Base.Web.RazorGenerator\API.Base.Web.RazorGenerator.csproj", "{39C80D0E-4B0C-40B2-AD0B-60928525F8AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTEC.App", "iTEC.App\iTEC.App.csproj", "{17D98F28-1CBF-4ABB-B9A5-D5CEFF2B15A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{08F9CDDB-99C2-4491-AD1E-F1E5C9F2EC74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F9CDDB-99C2-4491-AD1E-F1E5C9F2EC74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08F9CDDB-99C2-4491-AD1E-F1E5C9F2EC74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D98F28-1CBF-4ABB-B9A5-D5CEFF2B15A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D98F28-1CBF-4ABB-B9A5-D5CEFF2B15A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D98F28-1CBF-4ABB-B9A5-D5CEFF2B15A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D98F28-1CBF-4ABB-B9A5-D5CEFF2B15A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FDE00F49-88D0-4670-B298-D662BA7CF880} = {99D8A10C-6904-4980-A6FF-634617366823}
