@@ -1,11 +1,9 @@
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
-using API.StartApp.Models.Entities;
-using API.StartApp.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.StartApp.Controllers.API
+namespace API.StartApp.Example
 {
     public class ExampleController : GenericCrudController<ExampleEntity, ExampleViewModel>
     {

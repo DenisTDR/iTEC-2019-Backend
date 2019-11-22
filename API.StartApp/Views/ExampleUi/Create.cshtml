@@ -1,36 +1,20 @@
-@model API.StartApp.Models.Entities.ExampleEntity
-
+@model API.StartApp.Example.ExampleEntity
 @{
-    ViewData["Title"] = "Create";
+ViewData["Title"] = "Create new Example";
 }
 
-<h1>Create</h1> 
- 
-<h4>ExampleEntity</h4>
-<hr />
+<h4>@ViewData["Title"]</h4>
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-7">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <partial name="_Form"></partial>
             <div class="form-group">
-                <label asp-for="Name" ></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" ></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>
     </div>
 </div>
-
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a href='@Url.Action("Index")'>Back to list</a>
 </div>
-

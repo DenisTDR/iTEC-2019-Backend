@@ -1,54 +1,17 @@
-@model API.StartApp.Models.Entities.ExampleEntity
-
+@model API.StartApp.Example.ExampleEntity
 @{
-    ViewData["Title"] = "Details";
+ViewData["Title"] = "Example";
 }
 
-<h1>Details</h1>  
+<h2>Example: @Model.ToString()</h2>
+<hr/>
+<partial name="_Display"></partial>
 
 <div>
-    <h4>ExampleEntity</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Selector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Selector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deleted)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Created)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Created)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Updated)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Updated)
-        </dd>
-    </dl>
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>        <span>|</span>
+<a asp-action="Details" asp-route-id="@Model.Id">Details</a>        <span>|</span>
+<a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>        <span></span>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a href='@Url.Action("Index")'>Back to list</a>
 </div>

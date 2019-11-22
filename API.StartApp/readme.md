@@ -6,11 +6,11 @@
    * Install ``NET Core SDK 2.2``
    * Install/Configure a ``MariaDB >= 10.3`` database (version 10.3 or higher)
    * Clone this repo 
-     * Make sure the ``API.Base`` submodule is cloned (see submodule options in your Git GUI tool)
-   * Set your environment variables
-       * Create ``conf.vars.local`` file and overwrite environment variables from ``conf.vars`` (if necessary)
-       * Run ``./set-env-vars.sh`` (Linux) / ``set-env-vars.bat`` (Windows)
-    * Update and Seed database: ``dotnet run --seed true --migrate true``
+     * Make sure the ``API.Base`` submodule is cloned (see submodule options in your Git GUI tool or run ``git submodule update --init --recursive``)
+   * Set your environment variables (inside ``API.StartApp`` project directory)
+       * Create ``conf.vars.local`` file and overwrite environment variables you want to have different values from ``conf.vars``
+       * Run ``./set-env-vars.sh`` (Linux) / ``set-env-vars.bat`` (Windows) (use ``CMD`` and NOT ``PowerShell``) 
+   * Update and Seed database: ``dotnet run --seed true --migrate true`` (inside ``API.StartApp`` project directory)
 
 ### Dev
    * Run:
@@ -39,15 +39,4 @@
      * ``/Identity*``
      
 ### Environment variables
-  * Required
-    * ``ASPNETCORE_ENVIRONMENT`` - Development/Production
-    * ``CONNECTION_STRING`` - Database connection string
-    * ``CONTENT_DIRECTORY`` - path to the directory where uploaded files are stored
-    * ``LISTEN_PORT`` - ex: 6969
-    * ``JWT_SECURITY_KEY`` - JWT Secret security key for signing JWT tokens
-    * ``TEMPORARY_VIEWS_PATH`` - A directory with write access for storing temporary Razor Views files 
-  * Optional 
-    * ``SENDGRID_KEY`` - SendGrid API Key - for sending emails (if not set the sending is simulated in stdout/console)
-    * ``LOGS_DIRECTORY`` - directory to put logs file in, if not set '../logs' will be used
-    * ``ALLOWED_CORS_HOSTS`` - ';' separated list of hosts (http[s]://domain[:port])
-    * ``VIEWS_AND_WWW_PATHS`` - Only with ``dotnet [watch] run`` - ';' separated list of relative directory paths of projects which includes Views or wwwroot folders 
+   * Check this section in ``API.Base`` Readme. (The ``readme.md`` file in ``API.Base`` directory/repository).  
