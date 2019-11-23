@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.Base.Files.Models.Entities;
+using API.Base.Files.Models.ViewModels;
 using API.Base.Web.Base.Controllers.Api;
 using API.Base.Web.Base.Database.DataLayer;
 using API.Base.Web.Base.Exceptions;
@@ -8,6 +10,7 @@ using API.Base.Web.Base.Misc.PatchBag;
 using AutoMapper;
 using iTEC.App.Category;
 using iTEC.App.Product.ProductCategory;
+using iTEC.App.Product.ProductPhoto;
 using iTEC.App.Profile.BuyerProfile;
 using iTEC.App.Profile.SellerProfile;
 using Microsoft.AspNetCore.Authorization;
@@ -40,6 +43,7 @@ namespace iTEC.App.Product
         {
             base.OnActionExecuting(context);
             Repo.ChainQueryable(q => q
+                .Include(p => p.Seller)
                 .Include(p => p.Categories)
                 .ThenInclude(c => c.Category)
                 .ThenInclude(c => c.Parent)
@@ -62,7 +66,7 @@ namespace iTEC.App.Product
         public override async Task<IActionResult> GetAll()
         {
             if (CurrentUserIfLoggedIn == null) return await base.GetAll();
-            
+
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Seller"))
             {
                 throw new KnownException("You can't see all products.");
@@ -136,6 +140,8 @@ namespace iTEC.App.Product
 
         [Authorize(Roles = "Seller")]
         [HttpPost("{productId}")]
+        [ProducesResponseType(typeof(IList<CategoryViewModel>), 200)]
+        [ProducesResponseType(400)]
         public async Task<IActionResult> SetCategories([FromBody] IList<CategoryViewModel> categories,
             [FromRoute] string productId)
         {
@@ -157,7 +163,7 @@ namespace iTEC.App.Product
                 (await categoriesRepo.FindAll(cat => requestingIds.Any(cId => cId == cat.Id))).ToList();
             if (existingCategories.Count != categories.Count)
             {
-                throw new KnownException("Invalid categories");
+                throw new KnownException("Invalid category ids.");
             }
 
             var setProdCatIds = await productCategoriesRepo.DbSet.Where(pc => pc.Product.Id == productId)
@@ -169,7 +175,51 @@ namespace iTEC.App.Product
                 await productCategoriesRepo.Add(new ProductCategoryEntity(product, existingCategory));
             }
 
-            return Ok(existingCategories);
+            return Ok(Mapper.Map<IEnumerable<CategoryViewModel>>(existingCategories));
+        }
+
+        #endregion
+
+        #region product photos
+
+        [Authorize(Roles = "Seller")]
+        [HttpPost("{productId}")]
+        [ProducesResponseType(typeof(IList<FileViewModel>), 200)]
+        [ProducesResponseType(400)]
+        public async Task<IActionResult> SetPhotos([FromBody] IList<FileViewModel> photos,
+            [FromRoute] string productId, [FromQuery] string thumbnailId)
+        {
+            if (photos == null)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var product = await Repo.FindOne(p => p.Id == productId && p.Seller == CurrentSellerProfile);
+            if (product == null)
+            {
+                throw new KnownException("Can't touch this product. It's not yours.");
+            }
+
+            var productPhotoRepo = DataLayer.Repo<ProductPhotoEntity>();
+            var filesRepo = DataLayer.Repo<FileEntity>();
+            var requestingIds = photos.Select(c => c?.Id);
+            var existingFiles =
+                (await filesRepo.FindAll(cat => requestingIds.Any(cId => cId == cat.Id))).ToList();
+            if (existingFiles.Count != photos.Count)
+            {
+                throw new KnownException("Invalid file ids.");
+            }
+
+            var setProdPhotoIds = await productPhotoRepo.DbSet.Where(pp => pp.Product.Id == productId)
+                .Select(pc => pc.Id).ToListAsync();
+            foreach (var spcId in setProdPhotoIds) await productPhotoRepo.Delete(spcId);
+            foreach (var existingFile in existingFiles)
+            {
+                await productPhotoRepo.Add(new ProductPhotoEntity(existingFile, product,
+                    existingFile.Id == thumbnailId));
+            }
+
+            return Ok(Mapper.Map<FileViewModel>(existingFiles));
         }
 
         #endregion

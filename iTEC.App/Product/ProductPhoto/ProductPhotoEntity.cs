@@ -6,10 +6,21 @@ namespace iTEC.App.Product.ProductPhoto
 {
     public class ProductPhotoEntity : Entity
     {
+        public ProductPhotoEntity()
+        {
+        }
+
+        public ProductPhotoEntity(FileEntity file, ProductEntity product, bool isThumbnail = false)
+        {
+            File = file;
+            Product = product;
+            IsThumbnail = isThumbnail;
+        }
+
         public FileEntity File { get; set; }
         public ProductEntity Product { get; set; }
         public bool IsThumbnail { get; set; }
-        
+
         public override string ToString()
         {
             if (File == null || string.IsNullOrEmpty(File.SubDirectory) || string.IsNullOrEmpty(File.Name) ||
