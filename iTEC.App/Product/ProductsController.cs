@@ -73,6 +73,8 @@ namespace iTEC.App.Product
                 throw new KnownException("You can't see all products.");
             }
 
+            EnsureBuyerProfile();
+
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Buyer"))
             {
                 //filter for buyer type
@@ -221,6 +223,26 @@ namespace iTEC.App.Product
             }
 
             return Ok(Mapper.Map<FileViewModel>(existingFiles));
+        }
+
+        #endregion
+
+        #region helpers
+
+        private void EnsureBuyerProfile()
+        {
+            if (CurrentBuyerProfile == null)
+            {
+                throw new KnownException("Nu ai un profil valid de cumpărător.");
+            }
+        }
+
+        private void EnsureSellerProfile()
+        {
+            if (CurrentSellerProfile == null)
+            {
+                throw new KnownException("Nu ai un profil valid de vânzător.");
+            }
         }
 
         #endregion
