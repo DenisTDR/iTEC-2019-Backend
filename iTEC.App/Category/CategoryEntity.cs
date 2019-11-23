@@ -9,7 +9,7 @@ namespace iTEC.App.Category
 
         public override string ToString()
         {
-            return (Parent != null ? Parent + ": " : "") + Name;
+            return (Parent != null ? Parent + "->" : "") + Name;
         }
     }
 }

@@ -72,7 +72,7 @@
                 @Html.Raw(string.Join(", ", item.Photos))
             </td>
             <td>
-                <span>@Html.DisplayFor(modelItem => item.Categories)</span>
+                @Html.Raw(string.Join(", ", item.Categories))
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span></span>

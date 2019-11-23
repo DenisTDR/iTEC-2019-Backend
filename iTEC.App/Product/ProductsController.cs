@@ -1,21 +1,33 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
 using API.Base.Web.Base.Database.DataLayer;
 using API.Base.Web.Base.Exceptions;
 using API.Base.Web.Base.Misc.PatchBag;
 using AutoMapper;
+using iTEC.App.Category;
+using iTEC.App.Product.ProductCategory;
 using iTEC.App.Profile.SellerProfile;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace iTEC.App.Product
 {
     public class ProductsController : GenericCrudController<ProductEntity, ProductViewModel>
     {
+        #region init
+
+        private SellerProfileEntity _currentSellerProfile;
+
+        protected SellerProfileEntity CurrentSellerProfile =>
+            _currentSellerProfile ?? (_currentSellerProfile =
+                DataLayer.Repo<SellerProfileEntity>().FindOne(s => s.User == CurrentUser).Result);
+
         protected IDataLayer DataLayer => ServiceProvider.GetService<IDataLayer>();
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -29,6 +41,10 @@ namespace iTEC.App.Product
                 .Include(p => p.Photos)
                 .ThenInclude(pp => pp.File));
         }
+
+        #endregion
+
+        #region products
 
         [AllowAnonymous]
         public override Task<IActionResult> GetOne(string id)
@@ -93,10 +109,48 @@ namespace iTEC.App.Product
             return await base.Delete(id);
         }
 
-        private SellerProfileEntity _currentSellerProfile;
+        #endregion
 
-        protected SellerProfileEntity CurrentSellerProfile =>
-            _currentSellerProfile ?? (_currentSellerProfile =
-                DataLayer.Repo<SellerProfileEntity>().FindOne(s => s.User == CurrentUser).Result);
+        #region product categories
+
+        [Authorize(Roles = "Seller")]
+        [HttpPost("{productId}")]
+        public async Task<IActionResult> SetCategories([FromBody] IList<CategoryViewModel> categories,
+            [FromRoute] string productId)
+        {
+            if (categories == null)
+            {
+                return BadRequest();
+            }
+
+            var product = await Repo.FindOne(p => p.Id == productId && p.Seller == CurrentSellerProfile);
+            if (product == null)
+            {
+                throw new KnownException("Can't touch this product. It's not yours.");
+            }
+
+            var productCategoriesRepo = DataLayer.Repo<ProductCategoryEntity>();
+            var categoriesRepo = DataLayer.Repo<CategoryEntity>();
+            var requestingIds = categories.Select(c => c?.Id);
+            var existingCategories =
+                (await categoriesRepo.FindAll(cat => requestingIds.Any(cId => cId == cat.Id))).ToList();
+            if (existingCategories.Count != categories.Count)
+            {
+                throw new KnownException("Invalid categories");
+            }
+
+            var setProdCatIds = await productCategoriesRepo.DbSet.Where(pc => pc.Product.Id == productId)
+                .Select(pc => pc.Id).ToListAsync();
+            foreach (var spcId in setProdCatIds) await productCategoriesRepo.Delete(spcId);
+
+            foreach (var existingCategory in existingCategories)
+            {
+                await productCategoriesRepo.Add(new ProductCategoryEntity(product, existingCategory));
+            }
+
+            return Ok(existingCategories);
+        }
+
+        #endregion
     }
 }

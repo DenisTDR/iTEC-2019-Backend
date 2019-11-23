@@ -5,6 +5,16 @@ namespace iTEC.App.Product.ProductCategory
 {
     public class ProductCategoryEntity : Entity
     {
+        public ProductCategoryEntity()
+        {
+        }
+
+        public ProductCategoryEntity(ProductEntity product, CategoryEntity category)
+        {
+            Product = product;
+            Category = category;
+        }
+
         public ProductEntity Product { get; set; }
         public CategoryEntity Category { get; set; }
 
