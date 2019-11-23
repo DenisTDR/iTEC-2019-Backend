@@ -14,6 +14,7 @@ namespace iTEC.App.Order.OrderProduct
             DataLayer.Repo<ProductEntity>().ChainQueryable(q => q.Include(s => s.Seller));
             Repo.ChainQueryable(q => q
                 .Include(op => op.Order)
+                .ThenInclude(op => op.Buyer)
                 .Include(op => op.Product)
                 .ThenInclude(op => op.Seller)
             );

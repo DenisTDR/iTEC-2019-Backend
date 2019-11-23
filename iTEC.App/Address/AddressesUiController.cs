@@ -9,7 +9,7 @@ namespace iTEC.App.Address
             AddListColumn(x => x.Address);
             AddListColumn(x => x.City);
             AddListColumn(x => x.LocationLat);
-            AddListColumn(x => x.LocationLong);
+            AddListColumn(x => x.LocationLng);
         }
     }
 }

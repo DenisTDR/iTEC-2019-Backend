@@ -6,13 +6,13 @@ namespace iTEC.App.Address
         {
         }
 
-        public GeoLocation(float lat, float _long)
+        public GeoLocation(float lat, float lng)
         {
             Lat = lat;
-            Long = _long;
+            Lng = lng;
         }
 
         public float Lat { get; set; }
-        public float Long { get; set; }
+        public float Lng { get; set; }
     }
 }

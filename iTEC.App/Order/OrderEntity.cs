@@ -18,7 +18,7 @@ namespace iTEC.App.Order
 
         public override string ToString()
         {
-            return Buyer?.Name ?? "Buyer not loaded";
+            return string.IsNullOrEmpty(Buyer?.Name) ? "Buyer not loaded" : Id + " by " + Buyer.Name;
         }
     }
 }

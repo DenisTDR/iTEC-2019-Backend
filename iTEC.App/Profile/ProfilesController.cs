@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
 using API.Base.Web.Base.Database.DataLayer;
@@ -13,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace iTEC.App.Profile
 {
@@ -48,6 +46,7 @@ namespace iTEC.App.Profile
         private async Task<IActionResult> GetProfile<TVm, TE>(IRepository<TE> repo) where TVm : BaseProfileViewModel
             where TE : BaseProfileEntity
         {
+            repo.ChainQueryable(q => q.Include(p => p.Address));
             var profile = await repo.FindOne(p => p.User == CurrentUser);
             if (profile == null)
             {
@@ -78,6 +77,7 @@ namespace iTEC.App.Profile
             {
                 throw new KnownException("Invalid request object.");
             }
+
             var existing = await repo.FindOne(p => p.User == CurrentUser);
             TE e;
             if (existing == null)
@@ -135,14 +135,13 @@ namespace iTEC.App.Profile
             else
             {
                 repo.ChainQueryable(q => q.Include(p => p.Address));
-                Console.WriteLine(JsonConvert.SerializeObject(mpb));
                 var eub = Mapper.Map<EntityPatchBag<AddressEntity>>(mpb);
                 eub.Id = profile.Address.Id;
                 if (eub.PropertiesToUpdate["location"])
                 {
-                    eub.PropertiesToUpdate["locationLat"] = eub.PropertiesToUpdate["locationLong"] = true;
+                    eub.PropertiesToUpdate["locationLat"] = eub.PropertiesToUpdate["locationLng"] = true;
                 }
-                Console.WriteLine(JsonConvert.SerializeObject(eub));
+
                 e = await AddressesRepo.Patch(eub);
             }
 

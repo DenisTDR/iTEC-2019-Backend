@@ -13,12 +13,12 @@ namespace iTEC.App.Address
         public float LocationLat
         {
             get => Location?.Lat ?? 0;
-            set => Location = new GeoLocation(value, Location?.Long ?? 0);
+            set => Location = new GeoLocation(value, Location?.Lng ?? 0);
         }
 
-        public float LocationLong
+        public float LocationLng
         {
-            get => Location?.Long ?? 0;
+            get => Location?.Lng ?? 0;
             set => Location = new GeoLocation(Location?.Lat ?? 0, value);
         }
 
@@ -26,7 +26,7 @@ namespace iTEC.App.Address
 
         public override string ToString()
         {
-            return Address + "," + City + " (" + LocationLat + ", " + LocationLong + ")";
+            return Address + "," + City + " (" + LocationLat + ", " + LocationLng + ")";
         }
     }
 }

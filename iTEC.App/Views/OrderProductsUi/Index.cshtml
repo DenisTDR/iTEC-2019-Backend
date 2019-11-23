@@ -24,7 +24,7 @@ ViewData["Title"] = "OrderProducts";
                 @Html.DisplayNameFor(model => model.Product)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.UnitPrice)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Quantity)
@@ -50,7 +50,7 @@ ViewData["Title"] = "OrderProducts";
                     </span>
             </td>
             <td>
-                    <span>@Html.DisplayFor(modelItem => item.Price)</span>
+                    <span>@Html.DisplayFor(modelItem => item.UnitPrice)</span>
             </td>
             <td>
                     <span>@Html.DisplayFor(modelItem => item.Quantity)</span>

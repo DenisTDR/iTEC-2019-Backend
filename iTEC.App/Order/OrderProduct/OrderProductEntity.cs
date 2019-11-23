@@ -8,7 +8,7 @@ namespace iTEC.App.Order.OrderProduct
     {
         public OrderEntity Order { get; set; }
         public ProductEntity Product { get; set; }
-        public float Price { get; set; }
+        public float UnitPrice { get; set; }
         public float Quantity { get; set; }
         public SellingUnit Unit { get; set; }
     }
