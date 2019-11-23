@@ -7,6 +7,7 @@ namespace iTEC.App.Address
         protected override void SetListColumns()
         {
             AddListColumn(x => x.Address);
+            AddListColumn(x => x.City);
             AddListColumn(x => x.LocationLat);
             AddListColumn(x => x.LocationLong);
         }

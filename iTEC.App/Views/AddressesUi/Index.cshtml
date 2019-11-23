@@ -21,6 +21,9 @@ ViewData["Title"] = "Addresses";
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.LocationLat)
             </th>
             <th>
@@ -35,6 +38,9 @@ ViewData["Title"] = "Addresses";
     <tr>
             <td>
                     <span>@Html.DisplayFor(modelItem => item.Address)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.City)</span>
             </td>
             <td>
                     <span>@Html.DisplayFor(modelItem => item.LocationLat)</span>

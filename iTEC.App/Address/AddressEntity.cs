@@ -8,6 +8,7 @@ namespace iTEC.App.Address
     public class AddressEntity : Entity
     {
         [DataType(DataType.MultilineText)] public string Address { get; set; }
+        public string City { get; set; }
 
         public float LocationLat
         {
@@ -25,7 +26,7 @@ namespace iTEC.App.Address
 
         public override string ToString()
         {
-            return Address + " (" + LocationLat + ", " + LocationLong + ")";
+            return Address + "," + City + " (" + LocationLat + ", " + LocationLong + ")";
         }
     }
 }

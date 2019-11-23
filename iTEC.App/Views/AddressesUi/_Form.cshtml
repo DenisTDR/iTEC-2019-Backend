@@ -11,6 +11,13 @@
             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
+            @Html.LabelFor(model => model.City)
+
+@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.City)
+            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
             @Html.LabelFor(model => model.LocationLat)
 
 @Html.EditorFor(model => model.LocationLat, new { htmlAttributes = new { @class = "form-control" }})
