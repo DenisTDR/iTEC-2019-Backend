@@ -6,5 +6,7 @@ namespace iTEC.App.Category
     {
         public string Name { get; set; }
         public CategoryViewModel Parent { get; set; }
+
+        public string FullName => (Parent != null ? Parent.FullName + ": " : "") + Name;
     }
 }

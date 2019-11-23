@@ -1,10 +1,13 @@
-using API.Base.Web.Common.Controllers.Ui.Nv;
+using System.Threading.Tasks;
+using API.Base.Web.Base.Controllers.Api;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 
 namespace iTEC.App.Product
 {
-    public class ProductsUiController : NvGenericUiController<ProductEntity>
+    public class ProductsController : GenericCrudController<ProductEntity, ProductViewModel>
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
@@ -16,6 +19,18 @@ namespace iTEC.App.Product
                 .ThenInclude(c => c.Parent)
                 .Include(p => p.Photos)
                 .ThenInclude(pp => pp.File));
+        }
+
+        [AllowAnonymous]
+        public override Task<IActionResult> GetOne(string id)
+        {
+            return base.GetOne(id);
+        }
+
+        [AllowAnonymous]
+        public override Task<IActionResult> GetAll()
+        {
+            return base.GetAll();
         }
     }
 }

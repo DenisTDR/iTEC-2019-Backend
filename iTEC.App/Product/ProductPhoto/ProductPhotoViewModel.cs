@@ -7,5 +7,6 @@ namespace iTEC.App.Product.ProductPhoto
     {
         public FileViewModel File { get; set; }
         public ProductViewModel Product { get; set; }
+        public bool IsThumbnail { get; set; }
     }
 }
