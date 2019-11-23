@@ -8,12 +8,12 @@ using API.Base.Web.Base.Misc.PatchBag;
 using AutoMapper;
 using iTEC.App.Category;
 using iTEC.App.Product.ProductCategory;
+using iTEC.App.Profile.BuyerProfile;
 using iTEC.App.Profile.SellerProfile;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace iTEC.App.Product
@@ -27,6 +27,12 @@ namespace iTEC.App.Product
         protected SellerProfileEntity CurrentSellerProfile =>
             _currentSellerProfile ?? (_currentSellerProfile =
                 DataLayer.Repo<SellerProfileEntity>().FindOne(s => s.User == CurrentUser).Result);
+
+        private BuyerProfileEntity _currentBuyerProfile;
+
+        protected BuyerProfileEntity CurrentBuyerProfile =>
+            _currentBuyerProfile ?? (_currentBuyerProfile =
+                DataLayer.Repo<BuyerProfileEntity>().FindOne(s => s.User == CurrentUser).Result);
 
         protected IDataLayer DataLayer => ServiceProvider.GetService<IDataLayer>();
 
@@ -53,9 +59,23 @@ namespace iTEC.App.Product
         }
 
         [AllowAnonymous]
-        public override Task<IActionResult> GetAll()
+        public override async Task<IActionResult> GetAll()
         {
-            return base.GetAll();
+            if (CurrentUserIfLoggedIn == null) return await base.GetAll();
+            
+            if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Seller"))
+            {
+                throw new KnownException("You can't see all products.");
+            }
+
+            if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Buyer"))
+            {
+                //filter for buyer type
+                var type = CurrentBuyerProfile.Type;
+                Repo.ChainQueryable(q => q.Where(p => p.Seller.TargetType == type));
+            }
+
+            throw new KnownException("Invalid roles");
         }
 
         [HttpGet]
