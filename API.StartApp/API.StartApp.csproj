@@ -29,20 +29,4 @@
       <Folder Include="Migrations" />
     </ItemGroup>
 
-    <ItemGroup>
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\Create.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\Delete.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\Details.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\Edit.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\_Display.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\AddressesUi\_Form.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\Create.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\Delete.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\Details.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\Edit.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\Index.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\_Display.cshtml" />
-      <_ContentIncludedByDefault Remove="Views\SellerProfilesUi\_Form.cshtml" />
-    </ItemGroup>
 </Project>
