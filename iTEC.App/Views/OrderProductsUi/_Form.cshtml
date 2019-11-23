@@ -1,0 +1,52 @@
+
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@inject API.Base.Web.Base.Database.DataLayer.IDataLayer DataLayer
+@model iTEC.App.Order.OrderProduct.OrderProductEntity
+
+<div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Order)
+
+<select asp-for="Order.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Order.OrderEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Order)
+            @Html.ValidationMessageFor(model => model.Order, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product)
+
+<select asp-for="Product.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Product.ProductEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Product)
+            @Html.ValidationMessageFor(model => model.Product, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price)
+
+@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity)
+
+@Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Unit)
+
+<select asp-for="Unit" asp-items="Html.GetEnumSelectList<iTEC.App.Product.Enums.SellingUnit>()" class="form-control">
+                    <option selected="selected" value="">Not selected</option>
+            </select>
+            @Html.DescriptionFor(model => model.Unit)
+            @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+        </div>
+</div>

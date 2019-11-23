@@ -10,6 +10,8 @@ using API.Base.Web.Common.ReferenceTrack;
 using API.Base.Web.Common.Subscriber;
 using iTEC.App.Address;
 using iTEC.App.Category;
+using iTEC.App.Order;
+using iTEC.App.Order.OrderProduct;
 using iTEC.App.Product;
 using iTEC.App.Product.ProductCategory;
 using iTEC.App.Product.ProductPhoto;
@@ -47,6 +49,11 @@ namespace iTEC.App
                     new AdminDashboardLink("Products Photos", typeof(ProductPhotosUiController)),
                     new AdminDashboardLink("Product Categories", typeof(ProductCategoriesUiController)),
                 }),
+                new AdminDashboardSection("iTEC Shop: Shopping", new List<AdminDashboardLink>
+                {
+                    new AdminDashboardLink("Orders", typeof(OrdersUiController)),
+                    new AdminDashboardLink("Order Products", typeof(OrderProductsUiController)),
+                })
             };
         }
     }

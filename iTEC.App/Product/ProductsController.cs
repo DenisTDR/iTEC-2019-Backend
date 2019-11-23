@@ -44,6 +44,7 @@ namespace iTEC.App.Product
             base.OnActionExecuting(context);
             Repo.ChainQueryable(q => q
                 .Include(p => p.Seller)
+                .ThenInclude(s => s.Address)
                 .Include(p => p.Categories)
                 .ThenInclude(c => c.Category)
                 .ThenInclude(c => c.Parent)

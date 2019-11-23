@@ -1,0 +1,58 @@
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model iTEC.App.Order.OrderEntity
+
+<div>
+    <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Buyer)
+            </dt>
+            <dd class="col-sm-10">
+                    <span>
+                        @Model.Buyer
+                    </span>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Paid)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Paid) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PaymentInformation)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PaymentInformation) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Products)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Products) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Created) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Updated)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Updated) 
+            </dd>
+    </dl>
+</div>
+
