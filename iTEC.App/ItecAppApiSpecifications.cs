@@ -9,6 +9,10 @@ using API.Base.Web.Common.Partners.Models.Entities;
 using API.Base.Web.Common.ReferenceTrack;
 using API.Base.Web.Common.Subscriber;
 using iTEC.App.Address;
+using iTEC.App.Category;
+using iTEC.App.Product;
+using iTEC.App.Product.ProductCategory;
+using iTEC.App.Product.ProductPhoto;
 using iTEC.App.Profile.BuyerProfile;
 using iTEC.App.Profile.SellerProfile;
 
@@ -30,11 +34,18 @@ namespace iTEC.App
         {
             return new List<AdminDashboardSection>
             {
-                new AdminDashboardSection("iTEC Shop", new List<AdminDashboardLink>
+                new AdminDashboardSection("iTEC Shop: People", new List<AdminDashboardLink>
                 {
                     new AdminDashboardLink("Sellers", typeof(SellerProfilesUiController)),
                     new AdminDashboardLink("Buyers", typeof(BuyerProfilesUiController)),
                     new AdminDashboardLink("Addresses", typeof(AddressesUiController)),
+                }),
+                new AdminDashboardSection("iTEC Shop: Products", new List<AdminDashboardLink>
+                {
+                    new AdminDashboardLink("Categories", typeof(CategoriesUiController)),
+                    new AdminDashboardLink("Products", typeof(ProductsUiController)),
+                    new AdminDashboardLink("Products Photos", typeof(ProductPhotosUiController)),
+                    new AdminDashboardLink("Product Categories", typeof(ProductCategoriesUiController)),
                 }),
             };
         }

@@ -3,14 +3,16 @@ using System;
 using API.StartApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.StartApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191123144446_products_photos")]
+    partial class products_photos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -473,30 +475,6 @@ namespace API.StartApp.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("iTEC.App.Product.ProductCategory.ProductCategoryEntity", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("CategoryId");
-
-                    b.Property<DateTime>("Created");
-
-                    b.Property<string>("ProductId");
-
-                    b.Property<DateTime>("Updated");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductCategory");
-                });
-
             modelBuilder.Entity("iTEC.App.Product.ProductEntity", b =>
                 {
                     b.Property<string>("Id")
@@ -527,7 +505,7 @@ namespace API.StartApp.Migrations
                     b.ToTable("Product");
                 });
 
-            modelBuilder.Entity("iTEC.App.Product.ProductPhoto.ProductPhotoEntity", b =>
+            modelBuilder.Entity("iTEC.App.Product.ProductPhotoEntity", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -535,8 +513,6 @@ namespace API.StartApp.Migrations
                     b.Property<DateTime>("Created");
 
                     b.Property<string>("FileId");
-
-                    b.Property<bool>("IsThumbnail");
 
                     b.Property<string>("ProductId");
 
@@ -679,17 +655,6 @@ namespace API.StartApp.Migrations
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("iTEC.App.Product.ProductCategory.ProductCategoryEntity", b =>
-                {
-                    b.HasOne("iTEC.App.Category.CategoryEntity", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("iTEC.App.Product.ProductEntity", "Product")
-                        .WithMany("Categories")
-                        .HasForeignKey("ProductId");
-                });
-
             modelBuilder.Entity("iTEC.App.Product.ProductEntity", b =>
                 {
                     b.HasOne("iTEC.App.Profile.SellerProfile.SellerProfileEntity", "Seller")
@@ -697,7 +662,7 @@ namespace API.StartApp.Migrations
                         .HasForeignKey("SellerId");
                 });
 
-            modelBuilder.Entity("iTEC.App.Product.ProductPhoto.ProductPhotoEntity", b =>
+            modelBuilder.Entity("iTEC.App.Product.ProductPhotoEntity", b =>
                 {
                     b.HasOne("API.Base.Files.Models.Entities.FileEntity", "File")
                         .WithMany()

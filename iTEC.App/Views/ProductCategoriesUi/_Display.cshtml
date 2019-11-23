@@ -1,0 +1,42 @@
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model iTEC.App.Product.ProductCategory.ProductCategoryEntity
+
+<div>
+    <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Product)
+            </dt>
+            <dd class="col-sm-10">
+                    <span>
+                        @Model.Product
+                    </span>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class="col-sm-10">
+                    <span>
+                        @Model.Category
+                    </span>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Created) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Updated)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Updated) 
+            </dd>
+    </dl>
+</div>
+

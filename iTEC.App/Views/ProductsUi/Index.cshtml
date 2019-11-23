@@ -1,0 +1,85 @@
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model IEnumerable<iTEC.App.Product.ProductEntity>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-12 col-md-6">
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-end pb-2">
+        <a class="btn btn-outline-primary" asp-action="Create">Create new Product</a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seller)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableUnits)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Photos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories)
+        </th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.Name)</span>
+            </td>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.Description)</span>
+            </td>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.Price)</span>
+            </td>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.Unit)</span>
+            </td>
+            <td>
+                <span>
+                    @item.Seller
+                </span>
+            </td>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.AvailableUnits)</span>
+            </td>
+            <td>
+                @Html.Raw(string.Join(", ", item.Photos))
+            </td>
+            <td>
+                <span>@Html.DisplayFor(modelItem => item.Categories)</span>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span></span>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> <span></span>
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> <span></span>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

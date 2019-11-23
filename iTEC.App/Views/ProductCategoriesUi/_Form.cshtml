@@ -1,0 +1,29 @@
+
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@inject API.Base.Web.Base.Database.DataLayer.IDataLayer DataLayer
+@model iTEC.App.Product.ProductCategory.ProductCategoryEntity
+
+<div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product)
+
+<select asp-for="Product.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Product.ProductEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Product)
+            @Html.ValidationMessageFor(model => model.Product, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category)
+
+<select asp-for="Category.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Category.CategoryEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Category)
+            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+        </div>
+</div>

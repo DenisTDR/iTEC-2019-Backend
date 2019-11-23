@@ -1,0 +1,55 @@
+
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@inject API.Base.Web.Base.Database.DataLayer.IDataLayer DataLayer
+@model iTEC.App.Product.ProductEntity
+
+<div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name)
+
+@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description)
+
+@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price)
+
+@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Unit)
+
+<select asp-for="Unit" asp-items="Html.GetEnumSelectList<iTEC.App.Product.Enums.SellingUnit>()" class="form-control">
+                    <option selected="selected" value="">Not selected</option>
+            </select>
+            @Html.DescriptionFor(model => model.Unit)
+            @Html.ValidationMessageFor(model => model.Unit, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Seller)
+
+<select asp-for="Seller.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Profile.SellerProfile.SellerProfileEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Seller)
+            @Html.ValidationMessageFor(model => model.Seller, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AvailableUnits)
+
+@Html.EditorFor(model => model.AvailableUnits, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.AvailableUnits)
+            @Html.ValidationMessageFor(model => model.AvailableUnits, "", new { @class = "text-danger" })
+        </div>
+</div>

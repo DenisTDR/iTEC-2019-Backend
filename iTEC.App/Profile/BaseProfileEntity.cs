@@ -10,5 +10,10 @@ namespace iTEC.App.Profile
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public AddressEntity Address { get; set; }
+        
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
