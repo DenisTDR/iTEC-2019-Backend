@@ -20,9 +20,10 @@ namespace iTEC.App.Auth
         }
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public override Task<IActionResult> Register(RegisterRequestModel model, string pathPrefix)
+        public override async Task<IActionResult> Register(RegisterRequestModel model, string pathPrefix)
         {
-            return new Task<IActionResult>(NotFound);
+            await Task.Delay(500);
+            return NotFound();
         }
 
 

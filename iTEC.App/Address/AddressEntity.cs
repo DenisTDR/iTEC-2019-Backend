@@ -12,14 +12,14 @@ namespace iTEC.App.Address
 
         public float LocationLat
         {
-            get => Location.Lat;
-            set => Location = new GeoLocation(value, Location.Long);
+            get => Location?.Lat ?? 0;
+            set => Location = new GeoLocation(value, Location?.Long ?? 0);
         }
 
         public float LocationLong
         {
-            get => Location.Long;
-            set => Location = new GeoLocation(Location.Lat, value);
+            get => Location?.Long ?? 0;
+            set => Location = new GeoLocation(Location?.Lat ?? 0, value);
         }
 
         [IsReadOnly] [NotMapped] public GeoLocation Location { get; set; }
