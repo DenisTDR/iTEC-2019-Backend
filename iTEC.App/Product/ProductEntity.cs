@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using API.Base.Files.Models.Entities;
 using API.Base.Web.Base.Attributes;
 using API.Base.Web.Base.Models.Entities;
 using iTEC.App.Product.Enums;

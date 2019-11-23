@@ -1,5 +1,4 @@
 using System;
-using System.Net;
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
 using API.Base.Web.Base.Database.DataLayer;
@@ -75,6 +74,10 @@ namespace iTEC.App.Profile
             where TVm : BaseProfileViewModel
             where TE : BaseProfileEntity
         {
+            if (mpb.Model == null)
+            {
+                throw new KnownException("Invalid request object.");
+            }
             var existing = await repo.FindOne(p => p.User == CurrentUser);
             TE e;
             if (existing == null)

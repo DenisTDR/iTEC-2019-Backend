@@ -1,5 +1,4 @@
 using System.Linq;
-using API.Base.Files.Models.ViewModels;
 using API.Base.Web.Base.Models.EntityMaps;
 using AutoMapper;
 using iTEC.App.Category;

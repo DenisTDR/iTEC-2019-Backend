@@ -1,5 +1,4 @@
 using API.Base.Web.Base.Attributes.GenericForm;
-using iTEC.App.Address;
 using iTEC.App.Profile.Enums;
 
 namespace iTEC.App.Profile.SellerProfile

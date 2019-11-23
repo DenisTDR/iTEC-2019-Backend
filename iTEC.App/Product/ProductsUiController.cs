@@ -15,7 +15,8 @@ namespace iTEC.App.Product
                 .ThenInclude(c => c.Parent)
                 .ThenInclude(c => c.Parent)
                 .Include(p => p.Photos)
-                .ThenInclude(pp => pp.File));
+                .ThenInclude(pp => pp.File)
+                .Include(p => p.Seller));
         }
     }
 }

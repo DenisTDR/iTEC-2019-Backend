@@ -4,11 +4,9 @@ using API.Base.Web.Base.Auth.Jwt;
 using API.Base.Web.Base.Auth.Models.Entities;
 using API.Base.Web.Base.Auth.Models.HttpTransport;
 using API.Base.Web.Base.Helpers;
-using iTEC.App.Profile.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Migrations.Internal;
 
 namespace iTEC.App.Auth
 {
