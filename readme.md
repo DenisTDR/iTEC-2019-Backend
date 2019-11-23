@@ -8,3 +8,12 @@
 * EntityFramework Core
 * Swagger (Swashbuckle.AspNetCore)
 * SendGrid
+
+
+
+### Database diagram: 
+* [image link][logo]
+* Preview:
+![alt text][logo]
+
+[logo]: ./diagram.png "Database diagram"
