@@ -1,31 +1,41 @@
 @using API.Base.Web.Base.Extensions.HtmlHelpers
-@model iTEC.App.Address.AddressEntity
+@model iTEC.App.Profile.SellerProfile.SellerProfileEntity
 
 <div>
     <dl class="row">
             <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TargetType)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TargetType) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.User)
+            </dt>
+            <dd class="col-sm-10">
+                    <span>
+                        @Model.User
+                    </span>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber) 
+            </dd>
+            <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Address)
             </dt>
             <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address) 
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.LocationX)
-            </dt>
-            <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocationX) 
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.LocationY)
-            </dt>
-            <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LocationY) 
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Location)
-            </dt>
-            <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location) 
+                    <span>
+                        @Model.Address
+                    </span>
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Id)

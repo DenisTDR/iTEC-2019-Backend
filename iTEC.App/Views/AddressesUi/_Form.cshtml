@@ -1,0 +1,27 @@
+
+@using API.Base.Web.Base.Extensions.HtmlHelpers
+@model iTEC.App.Address.AddressEntity
+
+<div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address)
+
+@Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocationLat)
+
+@Html.EditorFor(model => model.LocationLat, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.LocationLat)
+            @Html.ValidationMessageFor(model => model.LocationLat, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LocationLong)
+
+@Html.EditorFor(model => model.LocationLong, new { htmlAttributes = new { @class = "form-control" }})
+            @Html.DescriptionFor(model => model.LocationLong)
+            @Html.ValidationMessageFor(model => model.LocationLong, "", new { @class = "text-danger" })
+        </div>
+</div>

@@ -5,17 +5,6 @@
 
 <div>
         <div class="form-group">
-            @Html.LabelFor(model => model.User)
-
-<select asp-for="User.Id" 
-asp-items="(await DataLayer.Repo<API.Base.Web.Base.Auth.Models.Entities.User>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
-class="form-control">
-                <option selected="selected" value="">Please select</option>
- </select>
-            @Html.DescriptionFor(model => model.User)
-            @Html.ValidationMessageFor(model => model.User, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
             @Html.LabelFor(model => model.Type)
 
 <select asp-for="Type" asp-items="Html.GetEnumSelectList<iTEC.App.Profile.Enums.BuyerType>()" class="form-control">
@@ -25,15 +14,15 @@ class="form-control">
             @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Address)
+            @Html.LabelFor(model => model.User)
 
-<select asp-for="Address.Id" 
-asp-items="(await DataLayer.Repo<iTEC.App.Address.AddressEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+<select asp-for="User.Id" 
+asp-items="(await DataLayer.Repo<API.Base.Web.Base.Auth.Models.Entities.User>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
 class="form-control">
                 <option selected="selected" value="">Please select</option>
  </select>
-            @Html.DescriptionFor(model => model.Address)
-            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            @Html.DescriptionFor(model => model.User)
+            @Html.ValidationMessageFor(model => model.User, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Name)
@@ -48,5 +37,16 @@ class="form-control">
 @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" }})
             @Html.DescriptionFor(model => model.PhoneNumber)
             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address)
+
+<select asp-for="Address.Id" 
+asp-items="(await DataLayer.Repo<iTEC.App.Address.AddressEntity>().GetAll()).Select(p => new SelectListItem(p.ToString(), p.Id))" 
+class="form-control">
+                <option selected="selected" value="">Please select</option>
+ </select>
+            @Html.DescriptionFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
         </div>
 </div>

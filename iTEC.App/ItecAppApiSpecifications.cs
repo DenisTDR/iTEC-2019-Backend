@@ -4,6 +4,7 @@ using API.Base.Web.Base.ApiBuilder;
 using API.Base.Web.Base.Models;
 using API.Base.Web.Common.Consumables.Models;
 using API.Base.Web.Common.FAQ;
+using API.Base.Web.Common.OgMetadata;
 using API.Base.Web.Common.Partners.Models.Entities;
 using API.Base.Web.Common.ReferenceTrack;
 using API.Base.Web.Common.Subscriber;
@@ -21,7 +22,7 @@ namespace iTEC.App
             {
                 typeof(PartnerEntity), typeof(PartnerTierEntity), typeof(PartnerTypeEntity),
                 typeof(ConsumableEntity), typeof(ConsumedRecordEntity), typeof(ReferenceTrackEntity),
-                typeof(SubscriberEntity)
+                typeof(SubscriberEntity), typeof(OgMetadataEntity), typeof(FaqEntity)
             };
         }
 

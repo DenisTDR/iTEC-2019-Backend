@@ -10,23 +10,23 @@ namespace iTEC.App.Address
     {
         [DataType(DataType.MultilineText)] public string Address { get; set; }
 
-        public float LocationX
+        public float LocationLat
         {
-            get => Location.X;
-            set => Location = new PointF(value, Location.Y);
+            get => Location.Lat;
+            set => Location = new GeoLocation(value, Location.Long);
         }
 
-        public float LocationY
+        public float LocationLong
         {
-            get => Location.Y;
-            set => Location = new PointF(Location.X, value);
+            get => Location.Long;
+            set => Location = new GeoLocation(Location.Lat, value);
         }
 
-        [IsReadOnly] [NotMapped] public PointF Location { get; set; }
+        [IsReadOnly] [NotMapped] public GeoLocation Location { get; set; }
 
         public override string ToString()
         {
-            return Address + " (" + LocationX + ", " + LocationY + ")";
+            return Address + " (" + LocationLat + ", " + LocationLong + ")";
         }
     }
 }

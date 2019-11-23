@@ -6,8 +6,6 @@ namespace iTEC.App.Profile.SellerProfile
 {
     public class SellerProfileEntity : BaseProfileEntity
     {
-        public User User { get; set; }
         public BuyerType TargetType { get; set; }
-        public AddressEntity Address { get; set; }
     }
 }

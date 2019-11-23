@@ -21,10 +21,10 @@ ViewData["Title"] = "Addresses";
                 @Html.DisplayNameFor(model => model.Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LocationX)
+                @Html.DisplayNameFor(model => model.LocationLat)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LocationY)
+                @Html.DisplayNameFor(model => model.LocationLong)
             </th>
                     <th>Actions</th>
     </tr>
@@ -37,10 +37,10 @@ ViewData["Title"] = "Addresses";
                     <span>@Html.DisplayFor(modelItem => item.Address)</span>
             </td>
             <td>
-                    <span>@Html.DisplayFor(modelItem => item.LocationX)</span>
+                    <span>@Html.DisplayFor(modelItem => item.LocationLat)</span>
             </td>
             <td>
-                    <span>@Html.DisplayFor(modelItem => item.LocationY)</span>
+                    <span>@Html.DisplayFor(modelItem => item.LocationLong)</span>
             </td>
                     <td>
 				<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>                    <span></span>

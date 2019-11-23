@@ -1,41 +1,31 @@
 @using API.Base.Web.Base.Extensions.HtmlHelpers
-@model iTEC.App.Profile.BuyerProfile.BuyerProfileEntity
+@model iTEC.App.Address.AddressEntity
 
 <div>
     <dl class="row">
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.User)
-            </dt>
-            <dd class="col-sm-10">
-                    <span>
-                        @Model.User
-                    </span>
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Type)
-            </dt>
-            <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type) 
-            </dd>
-            <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Address)
             </dt>
             <dd class="col-sm-10">
-                    <span>
-                        @Model.Address
-                    </span>
+            @Html.DisplayFor(model => model.Address) 
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.LocationLat)
             </dt>
             <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name) 
+            @Html.DisplayFor(model => model.LocationLat) 
             </dd>
             <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                @Html.DisplayNameFor(model => model.LocationLong)
             </dt>
             <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber) 
+            @Html.DisplayFor(model => model.LocationLong) 
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
+            <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location) 
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Id)

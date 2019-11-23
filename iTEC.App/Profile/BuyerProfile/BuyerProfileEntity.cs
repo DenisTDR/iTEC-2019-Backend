@@ -6,9 +6,7 @@ namespace iTEC.App.Profile.BuyerProfile
 {
     public class BuyerProfileEntity : BaseProfileEntity
     {
-        public User User { get; set; }
         public BuyerType Type { get; set; }
 
-        public AddressEntity Address { get; set; }
     }
 }

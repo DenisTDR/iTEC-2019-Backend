@@ -3,14 +3,16 @@ using System;
 using API.StartApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.StartApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191123025715_updated-buyer-seller")]
+    partial class updatedbuyerseller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,6 +220,35 @@ namespace API.StartApp.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AuthUser");
+                });
+
+            modelBuilder.Entity("API.Base.Web.Common.FAQ.FaqEntity", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Answer");
+
+                    b.Property<string>("Category")
+                        .HasMaxLength(256);
+
+                    b.Property<DateTime>("Created");
+
+                    b.Property<int>("OrderIndex");
+
+                    b.Property<bool>("Published");
+
+                    b.Property<string>("Question");
+
+                    b.Property<DateTime>("Updated");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("OrderIndex");
+
+                    b.ToTable("Faq");
                 });
 
             modelBuilder.Entity("API.Base.Web.Common.Models.Entities.SettingEntity", b =>
