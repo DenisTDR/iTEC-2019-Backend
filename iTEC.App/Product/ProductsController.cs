@@ -72,14 +72,15 @@ namespace iTEC.App.Product
             {
                 throw new KnownException("You can't see all products.");
             }
-
-            EnsureBuyerProfile();
-
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Buyer"))
             {
-                //filter for buyer type
-                var type = CurrentBuyerProfile.Type;
-                Repo.ChainQueryable(q => q.Where(p => p.Seller.TargetType == type));
+                if (CurrentBuyerProfile != null)
+                {
+                    //filter for buyer type
+                    var type = CurrentBuyerProfile.Type;
+                    Repo.ChainQueryable(q => q.Where(p => p.Seller.TargetType == type));
+                }
+
                 return await base.GetAll();
             }
 
