@@ -73,6 +73,7 @@ namespace iTEC.App.Product
                 //filter for buyer type
                 var type = CurrentBuyerProfile.Type;
                 Repo.ChainQueryable(q => q.Where(p => p.Seller.TargetType == type));
+                return await base.GetAll();
             }
 
             throw new KnownException("Invalid roles");
