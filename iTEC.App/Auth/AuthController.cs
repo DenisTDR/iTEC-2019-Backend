@@ -33,12 +33,16 @@ namespace iTEC.App.Auth
             {
                 return BadRequest(ModelState);
             }
+
             model.FirstName = null;
             model.LastName = null;
             var response = await base.Register(model, "/");
             var role = model.Type.ToString();
             var user = await UserManager.FindByEmailAsync(model.Email);
-            var roleResult = await UserManager.AddToRoleAsync(user, role);
+            if (user != null)
+            {
+                var roleResult = await UserManager.AddToRoleAsync(user, role);
+            }
 
             return response;
         }
