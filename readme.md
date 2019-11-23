@@ -16,4 +16,4 @@
 * Preview:
 ![alt text][logo]
 
-[logo]: ./diagram.png "Database diagram"
+[logo]: ./diagram-2.png "Database diagram"
