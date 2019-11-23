@@ -1,19 +1,14 @@
-## iTEC Web Delopment
+## NU - iTEC Web Development - Backend
 
-## Backend
-
-### Used technologies: 
+#### Used technologies: 
 * ASP Net Core 2.2
 * MariaDB (>10.3)
 * EntityFramework Core
 * Swagger (Swashbuckle.AspNetCore)
 * SendGrid
 
-
-
-### Database diagram: 
-* [image link][logo]
-* Preview:
-![alt text][logo]
+#### Database diagram: [link][logo]
+Preview:
+![Database diagram][logo]
 
 [logo]: ./diagram-2.png "Database diagram"
