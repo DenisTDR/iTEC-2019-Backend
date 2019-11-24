@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
@@ -46,8 +47,9 @@ namespace iTEC.App.Order
             base.OnActionExecuting(context);
             ProductsRepo.ChainQueryable(q => q.Include(p => p.Seller));
             OrdersRepo.ChainQueryable(q => q
+                .Include(o => o.Buyer)
                 .Include(o => o.Products)
-                .ThenInclude(p => p.Product.Seller)
+                .ThenInclude(p => p.Product.Seller.Address)
                 .Include(o => o.Products)
                 .ThenInclude(p => p.Product.Categories)
                 .ThenInclude(c => c.Category.Parent)
@@ -75,6 +77,27 @@ namespace iTEC.App.Order
             var orders = await OrdersRepo.GetAll();
 
             return Ok(Mapper.Map<IEnumerable<OrderViewModel>>(orders));
+        }
+
+        [Authorize(Roles = "Buyer")]
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(OrderViewModel), 200)]
+        public async Task<IActionResult> GetOne([FromRoute] [Required] string id)
+        {
+            if (await UserManager.IsInRoleAsync(CurrentUser, "Buyer"))
+            {
+                EnsureBuyerProfile();
+                OrdersRepo.ChainQueryable(q => q.Where(o => o.Buyer == CurrentBuyerProfile));
+                var order = await OrdersRepo.GetOne(id);
+                if (order == null)
+                {
+                    return NotFound();
+                }
+
+                return Ok(Mapper.Map<OrderViewModel>(order));
+            }
+
+            return NotFound();
         }
 
         [Authorize(Roles = "Buyer")]
