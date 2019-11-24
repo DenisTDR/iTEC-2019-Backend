@@ -64,7 +64,7 @@ namespace iTEC.App.Payments
                 currency = "USD",
                 hosted_checkout = new
                 {
-                    redirect_uri = EnvVarManager.GetOrThrow("EXTERNAL_URL") + "/api/Payments/CheckoutRedirect"
+                    redirect_uri = EnvVarManager.GetOrThrow("EXTERNAL_URL") + "/payment-redirect"
                 }
             };
             var wePayRequestBodyJson =
@@ -122,9 +122,9 @@ namespace iTEC.App.Payments
                 response.EnsureSuccessStatusCode();
                 var responseJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseText);
                 var state = responseJson["state"].ToString();
-                if (state == "released")
+                if (state == "released" || state == "authorized")
                 {
-                    order.State = OrderState.WaitingProcessing;
+                    order.State = OrderState.Paid;
                     await DataLayer.SaveChangesAsync();
                     await ProcessOrder();
                 }
