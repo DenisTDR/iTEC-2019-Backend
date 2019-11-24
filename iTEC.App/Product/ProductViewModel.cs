@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using API.Base.Web.Base.Attributes;
 using API.Base.Web.Base.Attributes.GenericForm;
 using API.Base.Web.Base.Models.ViewModels;
@@ -12,14 +13,11 @@ namespace iTEC.App.Product
 {
     public class ProductViewModel : ViewModel
     {
-        [FieldDefaultTexts] public string Name { get; set; }
-
-        [FieldDefaultTexts] public string Description { get; set; }
-
-        [FieldDefaultTexts] public float Price { get; set; }
-        [FieldDefaultTexts] public SellingUnit Unit { get; set; }
-
-        [FieldDefaultTexts] public float AvailableUnits { get; set; }
+        [Required] [FieldDefaultTexts] public string Name { get; set; }
+        [Required] [FieldDefaultTexts] public string Description { get; set; }
+        [Required] [FieldDefaultTexts] public float Price { get; set; }
+        [Required] [FieldDefaultTexts] public SellingUnit Unit { get; set; }
+        [Required] [FieldDefaultTexts] public float AvailableUnits { get; set; }
 
         [IsReadOnly] public SellerProfileViewModel Seller { get; set; }
 

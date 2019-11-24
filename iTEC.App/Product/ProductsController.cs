@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Base.Files.Models.Entities;
@@ -72,6 +73,7 @@ namespace iTEC.App.Product
             {
                 throw new KnownException("You can't see all products.");
             }
+
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Buyer"))
             {
                 if (CurrentBuyerProfile != null)
@@ -191,7 +193,7 @@ namespace iTEC.App.Product
         [ProducesResponseType(typeof(IList<FileViewModel>), 200)]
         [ProducesResponseType(400)]
         public async Task<IActionResult> SetPhotos([FromBody] IList<FileViewModel> photos,
-            [FromRoute] string productId, [FromQuery] string thumbnailId)
+            [FromRoute] string productId, [FromQuery] [Required] string thumbnailId)
         {
             if (photos == null)
             {
@@ -224,6 +226,12 @@ namespace iTEC.App.Product
             }
 
             return Ok(Mapper.Map<FileViewModel>(existingFiles));
+        }
+
+        [HttpPost]
+        public IActionResult IgnoreThisEndpoint2([FromBody] ProductPhotoViewModel model)
+        {
+            return Ok();
         }
 
         #endregion
