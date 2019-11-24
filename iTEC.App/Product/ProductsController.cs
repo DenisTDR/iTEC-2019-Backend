@@ -228,6 +228,16 @@ namespace iTEC.App.Product
             return Ok(Mapper.Map<IEnumerable<FileViewModel>>(existingFiles));
         }
 
+
+        [AllowAnonymous]
+        [HttpGet("{sellerId}")]
+        [ProducesResponseType(typeof(IEnumerable<ProductViewModel>), 200)]
+        public async Task<IActionResult> GetForSeller([FromRoute] [Required] string sellerId)
+        {
+            var prods = await Repo.FindAll(p => p.Seller.Id == sellerId);
+            return Ok(Mapper.Map<IEnumerable<ProductViewModel>>(prods));
+        }
+
         [HttpPost]
         public IActionResult IgnoreThisEndpoint2([FromBody] ProductPhotoViewModel model)
         {

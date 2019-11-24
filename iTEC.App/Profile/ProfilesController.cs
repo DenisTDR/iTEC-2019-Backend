@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using API.Base.Web.Base.Controllers.Api;
 using API.Base.Web.Base.Database.DataLayer;
@@ -111,6 +112,21 @@ namespace iTEC.App.Profile
             }
 
             return BadRequest();
+        }
+
+        [AllowAnonymous]
+        [HttpGet("{sellerId}")]
+        [ProducesResponseType(typeof(SellerProfileViewModel), 200)]
+        public async Task<IActionResult> GetSellerProfile([FromRoute] [Required] string sellerId)
+        {
+            SellersRepo.ChainQueryable(q => q.Include(s => s.Address));
+            var sellerProfile = await SellersRepo.GetOne(sellerId);
+            if (sellerProfile == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(Mapper.Map<SellerProfileViewModel>(sellerProfile));
         }
 
         private async Task<IActionResult> SaveAddress<TE>(ViewModelPatchBag<AddressViewModel> mpb,
