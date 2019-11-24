@@ -71,7 +71,7 @@ namespace iTEC.App.Product
 
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Seller"))
             {
-                throw new KnownException("You can't see all products.");
+                return await base.GetAll();
             }
 
             if (await UserManager.IsInRoleAsync(CurrentUserIfLoggedIn, "Buyer"))
