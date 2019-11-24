@@ -5,7 +5,9 @@
 * MariaDB (>10.3)
 * EntityFramework Core
 * Swagger (Swashbuckle.AspNetCore)
+#### Used services
 * SendGrid
+* Stripe
 
 #### Database diagram: [link][logo]
 Preview:
