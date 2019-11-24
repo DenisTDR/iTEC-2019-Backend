@@ -225,7 +225,7 @@ namespace iTEC.App.Product
                     existingFile.Id == thumbnailId));
             }
 
-            return Ok(Mapper.Map<FileViewModel>(existingFiles));
+            return Ok(Mapper.Map<IEnumerable<FileViewModel>>(existingFiles));
         }
 
         [HttpPost]
