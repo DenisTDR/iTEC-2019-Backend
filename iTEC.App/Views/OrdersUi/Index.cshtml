@@ -24,7 +24,10 @@ ViewData["Title"] = "Orders";
                 @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Paid)
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WePayCheckoutId)
             </th>
                     <th>Actions</th>
     </tr>
@@ -42,7 +45,10 @@ ViewData["Title"] = "Orders";
                     <span>@Html.DisplayFor(modelItem => item.TotalPrice)</span>
             </td>
             <td>
-                    <span>@Html.DisplayFor(modelItem => item.Paid)</span>
+                    <span>@Html.DisplayFor(modelItem => item.State)</span>
+            </td>
+            <td>
+                    <span>@Html.DisplayFor(modelItem => item.WePayCheckoutId)</span>
             </td>
                     <td>
 				<a asp-action="Edit" asp-route-id="@item.Id">Edit</a>                    <span></span>

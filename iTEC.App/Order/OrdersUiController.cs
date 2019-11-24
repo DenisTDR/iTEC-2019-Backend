@@ -17,7 +17,8 @@ namespace iTEC.App.Order
         {
             AddListColumn(o => o.Buyer);
             AddListColumn(o => o.TotalPrice);
-            AddListColumn(o => o.Paid);
+            AddListColumn(o => o.State);
+            AddListColumn(o => o.WePayCheckoutId);
         }
     }
 }

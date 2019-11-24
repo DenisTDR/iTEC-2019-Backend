@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -10,6 +11,7 @@ using API.Base.Web.Base.Database.Repository;
 using API.Base.Web.Base.Exceptions;
 using API.Base.Web.Base.Helpers;
 using iTEC.App.Order;
+using iTEC.App.Order.Enums;
 using iTEC.App.Profile.BuyerProfile;
 using iTEC.App.Profile.SellerProfile;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
 namespace iTEC.App.Payments
@@ -34,6 +37,7 @@ namespace iTEC.App.Payments
                 var httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", WePayAccessToken);
+                httpClient.DefaultRequestHeaders.Add("User-Agent", "iTEC-WebApi-Backend");
                 return httpClient;
             }
         }
@@ -41,10 +45,17 @@ namespace iTEC.App.Payments
 
         [Authorize(Roles = "Buyer")]
         [HttpPost]
-        public async Task<IActionResult> CreateCheckout([FromBody] CreateCheckoutRequestModel model)
+        public async Task<IActionResult> CreateCheckout([FromBody] CreateCheckoutRequestModel model,
+            [FromQuery] bool force = false)
         {
-            var order = await GetOrderForBuyerOrThrow(model);
-            var content = new
+            var order = await GetOrderForBuyerToPayOrThrow(model);
+            if (!string.IsNullOrEmpty(order.WePayCheckoutId) && !force)
+            {
+                throw new KnownException(
+                    "Nu poți plăti această comandă. Există deja o cerere de plată asociată pe WePay.");
+            }
+
+            var wePayRequestBody = new
             {
                 account_id = WePayAccountId,
                 amount = order.TotalPrice / 4.33,
@@ -56,51 +67,87 @@ namespace iTEC.App.Payments
                     redirect_uri = EnvVarManager.GetOrThrow("EXTERNAL_URL") + "/api/Payments/CheckoutRedirect"
                 }
             };
-            var jsonContent =
-                new StringContent(JsonConvert.SerializeObject(content), Encoding.UTF8, "application/json");
+            var wePayRequestBodyJson =
+                new StringContent(JsonConvert.SerializeObject(wePayRequestBody), Encoding.UTF8, "application/json");
 
             var response =
-                await WePayHttpClient.PostAsync($"https://stage.wepayapi.com/v2/checkout/create", jsonContent);
-            response.EnsureSuccessStatusCode();
+                await WePayHttpClient.PostAsync("https://stage.wepayapi.com/v2/checkout/create", wePayRequestBodyJson);
+
             var responseText = await response.Content.ReadAsStringAsync();
-            var responseJson = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseText);
+            try
+            {
+                response.EnsureSuccessStatusCode();
+                var responseJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseText);
 
-            var checkoutId = responseJson["checkout_id"];
-            var checkoutUri = responseJson["checkout_uri"];
+                var checkoutId = responseJson["checkout_id"].ToString();
+                var checkoutUri = (responseJson["hosted_checkout"] as JObject)?["checkout_uri"].ToString();
 
-            Console.WriteLine(checkoutId, checkoutUri);
-
-            return Ok();
+                order.WePayCheckoutId = checkoutId;
+                order.State = OrderState.WaitingPayment;
+                await DataLayer.SaveChangesAsync();
+                return Ok(new {checkoutId, checkoutUri});
+            }
+            catch
+            {
+                Console.WriteLine(responseText);
+                throw;
+            }
         }
 
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> CheckoutRedirect()
+        public async Task<IActionResult> CheckoutRedirect([FromQuery] [Required] string checkout_id)
         {
             Console.WriteLine(Request.GetEncodedUrl());
-
-            /*
-             * 
-            var formContent = new FormUrlEncodedContent(new List<KeyValuePair<string, string>>
+            if (string.IsNullOrEmpty(checkout_id))
             {
-                new KeyValuePair<string, string>("utilizator", model.Email.Replace("@student.upt.ro", "")),
-                new KeyValuePair<string, string>("parola", model.Password),
-            });
-            var response = await httpClient.PostAsync($"https://upt.ro/gisc/mbackend.php", formContent);
-            response.EnsureSuccessStatusCode();
-            var responseText = await response.Content.ReadAsStringAsync();
-            if (string.IsNullOrEmpty(responseText) || responseText.StartsWith("Neautentificat"))
-            {
-                throw new KnownException(await TranslationsRepository.Translate("invalid-upt-account"));
+                throw new KnownException("Invalid checkout_id");
             }
 
-             */
+            var order = await OrdersRepo.FindOne(o => o.WePayCheckoutId == checkout_id);
+
+            if (order == null)
+            {
+                throw new KnownException("Nu am găsit o comandă asociată");
+            }
+
+            var wePayRequestBody = new {checkout_id};
+            var wePayRequestBodyJson = new StringContent(JsonConvert.SerializeObject(wePayRequestBody), Encoding.UTF8,
+                "application/json");
+            var response =
+                await WePayHttpClient.PostAsync("https://stage.wepayapi.com/v2/checkout", wePayRequestBodyJson);
+            var responseText = await response.Content.ReadAsStringAsync();
+            try
+            {
+                response.EnsureSuccessStatusCode();
+                var responseJson = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseText);
+                var state = responseJson["state"].ToString();
+                if (state == "released")
+                {
+                    order.State = OrderState.WaitingProcessing;
+                    await DataLayer.SaveChangesAsync();
+                    await ProcessOrder();
+                }
+
+                return Ok(state);
+            }
+            catch
+            {
+                throw;
+            }
+
             return Ok();
+        }
+
+        private async Task ProcessOrder()
+        {
+            // TODO: process order quantities and deliver it
+            await Task.Delay(500);
         }
 
         #region helpers
 
-        private async Task<OrderEntity> GetOrderForBuyerOrThrow(CreateCheckoutRequestModel model)
+        private async Task<OrderEntity> GetOrderForBuyerToPayOrThrow(CreateCheckoutRequestModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -112,12 +159,17 @@ namespace iTEC.App.Payments
             var order = await OrdersRepo.GetOne(model.OrderId);
             if (order == null)
             {
-                throw new KnownException("Comanda nu a fost găsită");
+                throw new KnownException("Comanda nu a fost găsită!");
             }
 
             if (order.Buyer != CurrentBuyerProfile)
             {
-                throw new KnownException("Nu poți plăti această comandă deoarece nu îți aparține.");
+                throw new KnownException("Nu poți plăti această comandă deoarece nu îți aparține!");
+            }
+
+            if (order.State == OrderState.Paid || order.State == OrderState.WaitingProcessing)
+            {
+                throw new KnownException("Această comandă este deja plătită!");
             }
 
             return order;
