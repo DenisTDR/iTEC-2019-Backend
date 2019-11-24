@@ -11,4 +11,4 @@
 Preview:
 ![Database diagram][logo]
 
-[logo]: ./diagram-2.png "Database diagram"
+[logo]: ./diagram-3.png "Database diagram"
